@@ -40,14 +40,42 @@ class _CounterScreenState extends State<CounterScreen> {
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add_circle_outline),
-        onPressed: () {
-          print(count);
-          count++;
-          setState(() {});
-        },
-        backgroundColor: const Color.fromARGB(255, 86, 17, 170),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            child: const Icon(Icons.add_circle_outline),
+            onPressed: () {
+              count++;
+              setState(() {});
+            },
+            backgroundColor: const Color.fromARGB(255, 86, 17, 170),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          FloatingActionButton(
+            child: const Icon(Icons.restart_alt),
+            onPressed: () {
+              setState(() {
+                count = 0;
+              });
+            },
+            backgroundColor: const Color.fromARGB(255, 86, 17, 170),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          FloatingActionButton(
+            child: const Icon(Icons.minimize_sharp),
+            onPressed: () {
+              setState(() {
+                count--;
+              });
+            },
+            backgroundColor: const Color.fromARGB(255, 86, 17, 170),
+          ),
+        ],
       ),
     );
   }
